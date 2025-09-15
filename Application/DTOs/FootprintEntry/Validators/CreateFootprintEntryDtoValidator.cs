@@ -1,12 +1,19 @@
-﻿using System;
+﻿using Domain.Entities;
+using FluentValidation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Application.DTOs.FootprintEntry.Validators
 {
-    internal class CreateFootprintEntryDtoValidator
+    public class CreateFootprintEntryDtoValidator : AbstractValidator<CreateFootprintEntryDto>
     {
+        public CreateFootprintEntryDtoValidator()
+        {
+            Include(new IFootprintEntryDtoValidator);
+        }
     }
 }

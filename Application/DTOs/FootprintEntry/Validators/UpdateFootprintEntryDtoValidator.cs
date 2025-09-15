@@ -9,5 +9,9 @@ namespace Application.DTOs.FootprintEntry.Validators
 {
     public class UpdateFootprintEntryDtoValidator : AbstractValidator<UpdateFootprintEntryDto>
     {
+        public UpdateFootprintEntryDtoValidator()
+        {
+            Include(new IFootprintEntryDtoValidator());
+        }
     }
 }
