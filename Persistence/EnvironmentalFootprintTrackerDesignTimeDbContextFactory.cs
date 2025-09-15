@@ -8,14 +8,14 @@ namespace Persistence
     {
         public EnvironmentalFootprintTrackerDbContext CreateDbContext(string[] args)
         {
-            var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../WebUI");
+            var basePath = Path.Combine(Directory.GetCurrentDirectory(), "../Client");
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json", optional: true)
                 .Build();
 
 
-            var conn = configuration.GetConnectionString("CodeSnippetManagerMainDbConnectionString");
+            var conn = configuration.GetConnectionString("EnvironmentalFootprintTrackerMainDbConnectionString");
 
             var optionsBuilder = new DbContextOptionsBuilder<EnvironmentalFootprintTrackerDbContext>();
 
