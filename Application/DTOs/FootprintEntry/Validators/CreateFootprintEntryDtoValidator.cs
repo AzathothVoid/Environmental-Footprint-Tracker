@@ -13,7 +13,7 @@ namespace Application.DTOs.FootprintEntry.Validators
     {
         public CreateFootprintEntryDtoValidator()
         {
-            Include(new IFootprintEntryDtoValidator);
+            Include(new IFootprintEntryDtoValidator());
         }
     }
 }
