@@ -1,4 +1,7 @@
-﻿using Application.Responses;
+﻿using Application.Contracts.Persistence;
+using Application.DTOs.FootprintEntry;
+using Application.Features.FootprintEntry.Requests.Queries;
+using Application.Responses;
 using AutoMapper;
 using MediatR;
 using System;
@@ -9,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Snippets.Handlers.Queries
 {
-    public class GetFootprintEntryListQueryHandler : IRequestHandler<GetSnippetListQuery, CustomQueryResponse<List<SnippetDto>>>
+    public class GetFootprintEntryListQueryHandler : IRequestHandler<GetFootprintEntryListQuery, CustomQueryResponse<List<FootprintEntryDto>>>
     {
         private readonly IFootprintEntryRepository _footprintEntryRepository;
         private readonly IMapper _mapper;
@@ -21,12 +24,12 @@ namespace Application.Features.Snippets.Handlers.Queries
         }
 
 
-        public async Task<CustomQueryResponse<List<SnippetDto>>> Handle(GetSnippetListQuery request, CancellationToken cancellationToken)
+        public async Task<CustomQueryResponse<List<FootprintEntryDto>>> Handle(GetFootprintEntryListQuery request, CancellationToken cancellationToken)
         {
-            var response = new CustomQueryResponse<List<SnippetDto>>();
-            var snippetDetail = await _snippetRepository.GetAllAsync();
+            var response = new CustomQueryResponse<List<FootprintEntryDto>>();
+            var footprintEntryDetail = await _footprintEntryRepository.GetAllAsync();
 
-            if (snippetDetail == null)
+            if (footprintEntryDetail == null)
             {
                 response.Success = false;
                 response.Message = "Snippets not found";
@@ -35,7 +38,7 @@ namespace Application.Features.Snippets.Handlers.Queries
             
             response.Success = true;
             response.Message = "GET Successful";
-            response.Data = _mapper.Map<List<SnippetDto>>(snippetDetail);
+            response.Data = _mapper.Map<List<FootprintEntryDto>>(footprintEntryDetail);
 
             return response;
         }
