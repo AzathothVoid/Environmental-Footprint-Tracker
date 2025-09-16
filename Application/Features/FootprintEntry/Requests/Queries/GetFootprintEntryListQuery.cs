@@ -7,7 +7,7 @@ using Application.DTOs.FootprintEntry;
 
 namespace Application.Features.FootprintEntry.Requests.Queries
 {
-    public class GetFootprintEntryListRequest : IRequest<CustomQueryResponse<List<FootprintEntryDto>>>
+    public class GetFootprintEntryListQuery : IRequest<CustomQueryResponse<List<FootprintEntryDto>>>
     {
 
     }

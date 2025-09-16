@@ -7,8 +7,8 @@ using System.Text;
 
 namespace Application.Features.FootprintEntry.Requests.Queries
 {
-    public class GetFootprintEntryDetailsRequest : IRequest<CustomQueryResponse<FootprintEntryDto>>
+    public class GetFootprintEntryDetailsQuery : IRequest<CustomQueryResponse<FootprintEntryDto>>
     {
-        public int id { get; set; }
+        public int Id { get; set; }
     }
 }
